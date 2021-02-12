@@ -1,10 +1,12 @@
+import axios, { AxiosResponse } from 'axios';
 interface UserProps {
+  id?: number;
   name?: string; // '?:' means it's an optional property
   age?: number;
 }
 
 type CallBack = () => void; //Creating a Type alias.
-
+const BASE_URL = 'http://localhost:3000/';
 export class User {
   events: { [key: string]: CallBack[] } = {};
 
@@ -32,6 +34,12 @@ export class User {
 
     handlers.forEach(callback => {
       callback();
+    });
+  }
+
+  fetch(): void {
+    axios.get(`${BASE_URL}users/${this.get('id')}`).then((response: AxiosResponse): void => {
+      this.set(response.data);
     });
   }
 }
