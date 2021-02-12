@@ -6,6 +6,8 @@ interface UserProps {
 type CallBack = () => {}; //Creating a Type alias.
 
 export class User {
+  events: { [key: string]: CallBack[] };
+
   constructor(private data: UserProps) {}
 
   get(propName: string): number | string {
