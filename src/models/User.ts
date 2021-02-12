@@ -3,6 +3,8 @@ interface UserProps {
   age?: number;
 }
 
+type CallBack = () => {}; //Creating a Type alias.
+
 export class User {
   constructor(private data: UserProps) {}
 
@@ -13,4 +15,6 @@ export class User {
   set(update: UserProps): void {
     Object.assign(this.data, update); // Takes second argument data and inserts into first.
   }
+
+  on(eventName: string, callback: CallBack) {}
 }
