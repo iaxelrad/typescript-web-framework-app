@@ -11,4 +11,8 @@ export class Attributes<T> {
   set(update: T): void {
     Object.assign(this.data, update); // Takes second argument data and inserts into first.
   }
+
+  getAll(): T {
+    return this.data;
+  }
 }
