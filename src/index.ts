@@ -8,7 +8,7 @@ user.on('change', () => {
   console.log('User was changed');
 });
 
-user.trigger('change');
+user.set({ name: 'David' });
 //Reminder how 'this' works in JS
 // const colors = {
 //   color: 'red',
