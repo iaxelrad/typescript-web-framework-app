@@ -3,17 +3,17 @@ import { User } from '../models/User';
 export class UserForm {
   constructor(public parent: Element, public model: User) {}
 
-  eventsMap(): { [key: string]: () => void } {
+  eventsMap = (): { [key: string]: () => void } => {
     return {
       'click:.set-age': this.onSetAgeClick,
     };
-  }
+  };
 
-  onSetAgeClick(): void {
-    console.log('button was clicked.');
-  }
+  onSetAgeClick = (): void => {
+    this.model.setRandomAge();
+  };
 
-  template(): string {
+  template = (): string => {
     return `
       <div>
         <h1>User Form</h1>
@@ -24,9 +24,9 @@ export class UserForm {
         <button class="set-age">Set Random Age</button>
       </div>
     `;
-  }
+  };
 
-  bindEvents(fragment: DocumentFragment): void {
+  bindEvents = (fragment: DocumentFragment): void => {
     const eventsMap = this.eventsMap();
 
     for (let eventKey in eventsMap) {
@@ -36,13 +36,13 @@ export class UserForm {
         element.addEventListener(eventName, eventsMap[eventKey]);
       });
     }
-  }
-  render(): void {
+  };
+  render = (): void => {
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
 
     this.bindEvents(templateElement.content);
 
     this.parent.append(templateElement.content);
-  }
+  };
 }
