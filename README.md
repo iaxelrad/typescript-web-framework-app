@@ -12,7 +12,6 @@ I thoroughly enjoyed making it and learned a great amout of Typescript in the pr
 1. Clone this repo into your personal folder
 2. Start off with the command 
 ```npm install``` or  ```npm i``` from inside a terminal opened at your root directory.
-3. install the json-server and parcel npm packages with ```npm i json-server parcel```
 
 3. In your root folder create a db.json file that will house an object as follows:
     ```
