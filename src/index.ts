@@ -3,7 +3,7 @@ import { User, UserProps } from './models/User';
 import { Collection } from './models/Collection';
 import { UserList } from './views/UserList';
 
-const user = User.buildUser({ name: 'Placeholder Name' });
+const user = User.buildUser({ name: 'John Doe', age: 31 });
 const root = document.getElementById('root');
 if (root) {
   const userEdit = new UserEdit(root, user);
